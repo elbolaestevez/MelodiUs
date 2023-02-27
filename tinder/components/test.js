@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { login, update } from "../store/reducers/userSlice";
 import axios from "axios";
 import ageCalculator from "../reactHooks/ageCalculator";
-import Navbar from "../components/Navbar";
+import Navbar from "./Navbar";
 import { useRouter } from "next/router";
 
 export default function test({ children }) {
@@ -17,7 +17,6 @@ export default function test({ children }) {
   // };
 
   useEffect(() => {
-    console.log("javier dispatch");
     if (status === "authenticated") {
       const searchUser = async () => {
         const usuario = await axios.post("/api/newUser2", {
@@ -49,6 +48,8 @@ export default function test({ children }) {
       };
       searchUser();
     }
+    console.log("javier dispatch");
+    console.log(status, "Tavo");
   }, [status]);
 
   return (

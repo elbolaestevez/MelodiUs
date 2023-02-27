@@ -5,8 +5,8 @@ import { useSelector } from "react-redux";
 
 const MultiRangeSlider = ({ min, max, onChange }) => {
   const user = useSelector((state) => state.user);
-  const [minVal, setMinVal] = useState(user.ageRange[0]);
-  const [maxVal, setMaxVal] = useState(user.ageRange[1]);
+  const [minVal, setMinVal] = useState(min);
+  const [maxVal, setMaxVal] = useState(max);
   const minValRef = useRef(min);
   const maxValRef = useRef(max);
   const range = useRef(null);
@@ -17,8 +17,11 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
     [min, max]
   );
   useEffect(() => {
-    setMinVal(user.ageRange[0]);
-    setMaxVal(user.ageRange[1]);
+    if (user) {
+      console.log("user", user);
+      setMinVal(Number(user.ageRange[0]));
+      setMaxVal(Number(user.ageRange[1]));
+    }
   }, [user]);
 
   // Set width of the range to decrease from the left side

@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
 import { Provider } from "react-redux";
 import { store } from "../store/store";
-import Test from "./test";
+import Test from "../components/test";
 import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps, session }) {
@@ -18,7 +18,9 @@ export default function App({ Component, pageProps, session }) {
     return (
       <SessionProvider session={session}>
         <Provider store={store}>
-          <Component {...pageProps} />
+          <Test>
+            <Component {...pageProps} />
+          </Test>
         </Provider>
       </SessionProvider>
     );

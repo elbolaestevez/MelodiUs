@@ -56,19 +56,18 @@ export default function Register() {
         searchGenre: buscargenero,
         isAdmin: "",
       });
+      const loggedUser = {
+        name: nombre,
+        email: session.user.email,
+        birthday: fecha,
+        genre: genero,
+        searchGenre: buscargenero,
+        isAdmin: "",
+      };
+
+      dispatch(login(loggedUser));
       return router.push("/logged/userProfile/settings");
     }
-
-    const loggedUser = {
-      name: nombre,
-      email: session.user.email,
-      birthday: fecha,
-      genre: genero,
-      searchGenre: buscargenero,
-      isAdmin: "",
-    };
-
-    dispatch(login(loggedUser));
 
     return router.push("/register/register2");
   };

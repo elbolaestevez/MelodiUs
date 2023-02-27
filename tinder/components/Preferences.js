@@ -175,7 +175,7 @@ const Preferences = () => {
         <ul role="list">
           <li className="py-1 sm:py-4">
             <div className="flex flex-1 min-w-0 justify-center mt-4">
-              <MultiRangeSlider
+              {/* <MultiRangeSlider
                 className="w-3/5"
                 min={18}
                 max={100}
@@ -183,7 +183,7 @@ const Preferences = () => {
                   setMinVal(min);
                   setMaxVal(max);
                 }}
-              />
+              /> */}
             </div>
           </li>
         </ul>
